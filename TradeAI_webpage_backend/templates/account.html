@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>TradeAI - {{ platform }} Account</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/style2.css')}}"/>
+<script src="{{ url_for('static', filename='js/s.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="bg-image"></div>
+<nav>
+    <ul>
+      <li><img class="logo" src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.1&permmsgid=msg-a:r7043939111896252411&th=188713de7ac36d6c&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-Vu2S85CXvuGXxIfCV9THhUQzhPysXTkFdTypwB7I0_QC_NwqwKttttKc-8o-uaLiDL19owLw8YJmwlg_tq7QBRKP6e8lfHM72okOHUytnlw6cUOYmcWpbSn0&disp=emb&realattid=ii_libjafld0" id="logo">
+      </li>
+    </ul>
+  </nav>
+    {% if look_at_entries %}
+    {% else %}
+      <div id="account-center">
+      {% if add_cash_button_clicked or takeout_cash_button_clicked %}
+        <div class="account-info-robinhood-addCash">
+      {% else %}
+        <div id="maccount-center" class="account-info-robinhood">
+      {% endif %}
+      {% if not add_cash_button_clicked and not takeout_cash_button_clicked %}
+        <h1 style="margin-top: 75px; text-align: center;font-size: 25px;font-family: cursive; letter-spacing: 4px;">{{ greeting }} {{ user }}</h1>
+      {% elif add_cash_button_clicked %}
+        <h1 style="text-align: center;font-family: cursive; letter-spacing: 4px;">Add Cash</h1>
+      {% else %}
+        <h1 style="text-align: center;font-family: cursive; letter-spacing: 4px;">Withdrawal Cash</h1>
+      {% endif %}
+      <hr style="width: 350px;"/>
+      {% if not add_cash_button_clicked and not takeout_cash_button_clicked %}
+        <div class="account-margin-left">
+          <p>Cash Amount: {{ data.withdrawal_limit.limit }}</p>
+          <p style="margin-left: 110px;">Using Money From: {{ data.type.banking_type }}</p>
+          {% if login_data %}
+            <!--<h5>Logged into: {{data.logged_into}}</h5>
+            <h5>Bank account owner: {{data.owner_info.account_owner}}</h5>
+            <h5>Withdrawal Limit: {{data.withdrawal_limit.limit}}</h5>
+            <h5>Using Money From: {{data.type.banking_type}}</h5>
+            <h5>Routing Number: {{data.bank_info.routing_number}}</h5>
+            <h5>Bank Acct Number: {{data.bank_info.account_number}}</h5>-->
+          {% endif %}
+        </div>
+        <div class="account-margin-left">
+          <form method="post" action="{{ url_for('account_action_add_cash')}}">
+            <input id="addCashButton" type="submit" name="add_cash" value="Add Cash" class="acct-button1">
+          </form>
+          <form method="post" action="{{ url_for('account_action_takeout_cash')}}">
+            <input id="takeoutCashButton" type="submit" name="takeout_cash" value="Withdrawal cash" class="acct-button2">
+          </form>
+          <form method="post" action="{{ url_for('logout_account') }}">
+            <input id="logoutButton" type="submit" name="logout" value="Logout" class="acct-button3">
+          </form>
+        </div>
+        </div>
+        <!--<div style="margin-left: 65px">
+          <button class="acct-button4" style="width: 80%;">Button 1</button>
+        </div>-->
+      {% else %}
+      <h1>Hi</h1>
+      {% endif %}
+    </div>
+        <div id="heading" class="main-heading">
+          <h1 style="text-align: center;">Activity Center</h1>
+          <hr style="width: 65%"/>
+          <div class="flex" style="justify-content: center;">
+            <button class="activity-center-ActionButton" style="margin-right: 20px" onclick="toggleOrderHistory()" id="btp1">Order History</button>
+            <button class="activity-center-ActionButton" style="margin-right: 20px" onclick="toggleInvestmentStats()" id="btp2">Investment Stats</button>
+            <button class="activity-center-ActionButton" style="margin-right: 20px" onclick="toggleSettings()" id="btp3">Settings</button>
+            <button class="activity-center-ActionButton" style="margin-right: 20px" onclick="toggleCommittedData()" id="btp4">Committed Data</button>
+            <button class="activity-center-ActionButton" style="margin-right: 20px" onclick="toggleApiDocs()" id="btp5">API Docs</button>
+            <button class="activity-center-ActionButton" onclick="toggleAccount()" id="btp6">Account</button>
+            {% if is_creating_new_data %}
+              <form method="post" action="{{ url_for('account') }}">
+                <input id="back" type="submit" name="back" value="Back" class="activity-center-ActionButton" style="margin-left: 20px;">
+              </form>
+            {% endif %}
+          </div>
+          {% if submit_error %}
+          <p style="color: red; text-align: left; text-indent: 25px; margin-top: 5px">Alert: {{ sub_err_msg }}</p>
+          {% endif %}
+        </div>
+        {% if not is_creating_new_data %}
+          <div class="left-upmost">
+        {% else %}
+          <div class="left-upmost-MH">
+        {% endif %}
+          {% if not is_creating_new_data %}
+            <h1 style="text-align: center;">User Data</h1>
+          {% else %}
+            <h1 style="text-align: center;">Create New Data</h1>
+          {% endif %}
+          <hr style="width: 70%"/>
+          <div class="flex">
+            {% if show_help %}
+
+            {% else %}
+              {% if not is_creating_new_data %}
+                <!--<h3 style="margin-left: 20px">New Data: </h3>-->
+                <form method="post" action="{{ url_for('new_custom_data') }}" style="margin: auto;">
+                  <input onclick="toggleRecents()" id="newData" type="submit" name="newData" value="Create New Data" class="activity-center-newDataButton">
+                </form>
+                <input id="learnHowNewData" type="submit" name="learnHowNewData" value="Learn" class="activity-center-newDataButton" style="margin-left: 10px;">
+              {% else %} 
+                <form method="post" action="{{ url_for('new_custom_data') }}">
+                  <input required type="text" placeholder="Entry Name (make it unique)" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 35px;font-size: 14px" type="text" id="entryName" name="entryName">
+                  <input required type="text" placeholder="For Account (traditional, Roth IRA or Normal IRA)" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 5px;font-size: 14px" type="text" id="forAccount" name="forAccount">
+                  <input required type="text" placeholder="Stocks" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 5px;font-size: 14px" type="text" id="stocks" name="stocks">
+                  <input required type="text" placeholder="Initial Prices (separated by commas)" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 5px;font-size: 14px" type="text" id="initPrices" name="initPrices">
+                  <input required type="text" placeholder="Todays Gains And/Or Losses (separated by commas)" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 5px;font-size: 14px" type="text" id="TGOL" name="TGOL">
+                  <input required type="text" placeholder="Total Gains And/Or Losses (separated by commas)" style="font-family: cursive; border: 2.2px solid black; background-color: lightgreen; text-indent: 10px; height: 26px; width: 360px; margin-left: 45px; margin-top: 5px;font-size: 14px" type="text" id="TOTGOL" name="TOTGOL">
+                  <input onclick="toggleRecents()" id="create" type="submit" name="create" value="Create New Data" class="submit-new-data-button" style="margin-top: 15px">
+                </form>
+              {% endif %}
+            {% endif %}
+          </div>
+          {% if is_creating_new_data %}
+            <hr style="width: 80%;margin-bottom: -10px;"/>
+          {% endif %}
+          {% if not show_help %}
+            <div style="margin: auto;">
+            {% if has_entries %}
+              <form method="post" action="{{ url_for('see_existing_data') }}">
+                <input id="seeEntries" type="submit" name="seeEntries" value="See Existing Entries" class="accross-div-button" style="margin-bottom: -10px;">
+              </form>
+            {% endif %}
+            <form method="post" action="{{ url_for('new_custom_data') }}">
+              <input id="help" type="submit" name="help" value="Learn More" class="accross-div-button">
+            </form>
+            </div>
+          {% else %}
+            <!-- Back button. -->
+          {% endif %}
+        </div>
+        {% if not add_cash_button_clicked %}
+        <div id="orderHistory" class="long-div">
+          <h1 style="text-align: center;">Order History</h1>
+          <hr style="width: 80%"/>
+        </div>
+        <div id="investmentStats" class="long-div">
+          <h1 style="text-align: center;">Investment Stats</h1>
+          <hr style="width: 80%"/>
+        </div>
+        <div id="settings" class="short-div">
+          <h1 style="text-align: center;">Account Settings</h1>
+          <hr style="width: 80%"/>
+        </div>
+        <div id="committedData" class="long-div">
+          <h1 style="text-align: center">Comitted Data</h1>
+          <hr style="width: 80%;"/>
+        </div>
+        <div id="api" class="long-div">
+          <h1 style="text-align: center;">API Docs</h1>
+          <hr style="width: 80%;"/>
+        </div>
+        <div id="stockPreview" class="long-div">
+          <h1 style="text-align: center;">Stock Preview</h1>
+          <hr style="width: 80%;"/>
+        </div>
+        <div id="stockPreviewBelowAccount" class="long-div-below-account">
+          <h1 style="text-align: center;">Stock Preview</h1>
+          <hr style="width: 80%;"/>
+        </div>
+        {% endif %}
+        {% if not is_creating_new_data %}
+        <div id="recent" class="recents-div">
+          <h1 style="text-align: center;">Recent Activity</h1>
+          <hr style="width: 80%;"/>
+        </div>
+        {% endif %}
+        <!--<div id="main" class="main">
+          <h2 style="margin-top: 20px; text-align: center;">User Data:</h2>
+          <div class="account-margin-left">
+            <form method="post" action="{{ url_for('new_custom_data') }}">
+              <input id="newCustomData" type="submit" name="newCustomData" value="New Data" class="activity-center-newDataButton"/>
+            </form>
+            <form method="post" action="{{ url_for('see_existing_data') }}">
+              <input id="seeData" type="submit" name="seeData" value="See Data" class="activity-center-seeDataButton"/>
+            </form>
+          </div>
+          {% if has_just_added_cash %}
+          {% endif %}
+        </div>-->
+        {% if has_just_added_cash %}
+          <div class="account-margin-left-confirm">
+          
+          </div>
+          <div class="{{class_name}}">
+            <h2 style="text-align: center; letter-spacing: 2px;">Stock Information According To Your Gains >=:</h2>
+            <hr style="width: 350px;"/>
+            {% for i in range(0, amnt_of_stocks) %}
+              {% if i % 2 == 0 or i == 0 %}
+                <div style="display: inline-block;">
+              {% endif %}
+              <p style="margin-left: 40px;font-size:13px">{{ symbol[i] }}<span style="{{color[i]}}">{{ on_stocks[i] }}</span>({{ prices[i] }}) {{ stats[i] }} {{ personal[i] }}</p>
+              {% if i % 2 != 0 and i >= 4 %}
+                </div>
+              {% endif %}
+            
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+<!--</div>-->
+<!--{% if login_data %}
+        <h5>Logged into: {{data.logged_into}}</h5>
+        <h5>Bank account owner: {{data.owner_info.account_owner}}</h5>
+        <h5>Withdrawal Limit: {{data.withdrawal_limit.limit}}</h5>
+        <h5>Using Money From: {{data.type.banking_type}}</h5>
+        <h5>Routing Number: {{data.bank_info.routing_number}}</h5>
+        <h5>Bank Acct Number: {{data.bank_info.account_number}}</h5>
+        {% endif %}
+        <label for="dogs">Choose:</label>-->
+        
+        <!--<input type="submit" style="margin-top: 10px;border: none; background-color: greenyellow; height: 50px; cursor: pointer;" name="sub" value="Logout"/>-->
+        
+<!--<div class="account-center">
+    {% if platform == 'Robinhood' %}
+    <div class="account-info-robinhood">
+    {% else %}
+    <div class="account-alpaca">
+    {% endif %}
+        <h3>{{ greeting }}, <span style="letter-spacing: 2.5px; margin-left: 5px; bottom: 100%">{{ user }}</span>!</h3>
+        <a href="{{ url_for('logout_account') }}" style="text-decoration: none;"><button style=" margin-top: 10px;border: none; background-color: greenyellow; height: 50px; cursor: pointer;" class="hover">Logout</button></a>
+    </div>
+</div>-->
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'login_base.html' %}
+
+{% block restOfPage %}
+<div class="center">
+    {% if platform == 'Robinhood' %}
+    <div class="form-for-robinhood">
+    {% elif platform == 'Alpaca' %} 
+    <div class="form-for-alpaca">
+    {% else %}
+    <div class="form-for-error">
+    {% endif %}
+        {% if not login_data %}
+    <form action="{{ url_for('deal_with_login')}}" method="post" style="display: flex; flex-direction: column;">
+        <h1 style="text-align: center;">{{ platform }} Login: </h1>
+        {% if err_msg and err_msg2 %}
+        <p style="text-align: left; color: red; font-weight: bolder;">{{ err }}</br>{{ err2 }}</p>
+        {% else %}
+        <p style="text-align: left; color: red; font-weight: bolder;">{{ err }}</p>
+        {% endif %}
+        <input required type="text" placeholder="Username" style="border: .5px solid greenyellow; height: 26px; width: 400px;" type="text" id="username" name="username">
+        <input required autofocus placeholder="Password" style="border: .5px solid greenyellow; margin-top: 10px; height: 26px; width: 400px;" type="password" name="passw">
+        <input required placeholder="MFA Code" style="border: .5px solid greenyellow; margin-top: 10px; height: 26px; width: 400px;" name="MFACode"/>
+        <!--<button name="submit" type="submit" style="margin-top: 10px;border: none; background-color: greenyellow; height: 50px;">Login</button>
+        <a href="/" style="text-decoration: none; cursor: pointer;"><button name="submit" type="submit" value="Go Back" style="margin-top: 5px; border: none; background-color: lightgrey; height: 50px; width: 406.5px">Go back</button></a>
+        -->
+        <div style="position: relative; right: -15px; margin-top: 10px; vertical-align: middle;">
+        Keep Me Logged In
+        <input type="checkbox" value="1" name="keepLoggedIn"/>
+        </div>
+        <input type="submit" style="margin-top: 10px;border: none; background-color: greenyellow; height: 50px; cursor: pointer;" name="sub" value="Login"/>
+    </form>
+    <a href="{{url_for('home')}}"><button class="Button" type="submit" style="margin-top: 10px;border: none; background-color: lightgrey; height: 50px; width: 406.5px; cursor: pointer;">Go back</button></a>
+    {% endif %}
+    {% if login_data %}
+    <h5>Logged into: {{data.logged_into}}</h1>
+        <h5>Bank account owner: {{data.owner_info.account_owner}}</h1>
+        <h5>Withdrawal Limit: {{data.withdrawal_limit.limit}}</h1>
+        <h5>Using Money From: {{data.type.banking_type}}</h1>
+        <h5>Routing Number: {{data.bank_info.routing_number}}</h1>
+        <h5>Bank Acct Number: {{data.bank_info.account_number}}</h1>
+        </br></br>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>TradeAI</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
+{% endblock %}
+
+{% block body %}
+  <script src="script.js"></script>
+  <div class="bg-image"></div>
+
+<!--<nav class="main-menu">
+    <ul>
+		<li class="a1"><a href="#" title="link1">API Docs</a></li>
+		<li class="a1"><a href="#" title="link2">Learn</a></li>
+		<li class="a1"><a href="#" title="link3">Your Data</a></li>
+		<li class="a1"><a href="#" title="link4">Login | Signup</a></li>
+	</ul>
+</nav>-->
+<nav>
+    <ul>
+      <li><img class="logo" src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.1&permmsgid=msg-a:r7043939111896252411&th=188713de7ac36d6c&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-Vu2S85CXvuGXxIfCV9THhUQzhPysXTkFdTypwB7I0_QC_NwqwKttttKc-8o-uaLiDL19owLw8YJmwlg_tq7QBRKP6e8lfHM72okOHUytnlw6cUOYmcWpbSn0&disp=emb&realattid=ii_libjafld0" id="logo">
+      </li>
+    </ul>
+  </nav>
+<div class="bg-text">
+  <!--h1 style="font-size: 50px; letter-spacing: 1px;">TradeAI</h1>
+  <h1 style="letter-spacing: 1.5px; font-size: 40px; border-bottom: 1px solid white;padding-bottom: 15px;">A new way to take on investing.</h1>
+  -->
+  <h1 style="letter-spacing: .8px;font-size: 50px;">TradeAI is here to change the game for everyday investors.</h1>
+  {% if not login_data %}
+  <p style="letter-spacing: .8px; font-size: 22px">Choose the platform you use: </p>
+  <div class="together">
+    <a href="/login_robinhood" style="text-decoration: none; color: hotpink"><button class="margin-right hover">Robinhood</button></a>
+    <a href="/login_alpaca" style="text-decoration: none; color: hotpink"><button class="hover">Alpaca</button></a>
+    <button class="margin-left">TD Ameritrade is currently unavilable.</button>
+    <!--<a href="/" style="text-decoration: none; color: hotpink"><button class="hover">TD Ameritrade</button></a>
+    -->
+    </div>
+    {% endif %}
+    {% if login_data %}
+    <h5>Logged into: {{data.logged_into}}</h1>
+    <h5>Bank account owner: {{data.owner_info.account_owner}}</h1>
+    <h5>Withdrawal Limit: {{data.withdrawal_limit.limit}}</h1>
+    <h5>Using Money From: {{data.type.banking_type}}</h1>
+    <h5>Routing Number: {{data.bank_info.routing_number}}</h1>
+    <h5>Bank Acct Number: {{data.bank_info.account_number}}</h1>
+    </br></br>
+    <p style="letter-spacing: .8px; font-size: 18px">Get started: </p>
+    <div class="together">
+        <button class="margin-right">API Docs</button>
+        <button>APIs</button>
+        <button>Account</button>
+    </div>
+    {% endif %}
+
+</div>
+    <!--<div class="sample-header">
+      <div class="container">
+        <div class="topnav">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+    </div>
+  </div>-->
+    <!--<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641" class="d-block w-100" alt="..." class="ss">
+    </div>
+    <div class="carousel-item">
+      <img src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>-->
+    
+{% endblock %}

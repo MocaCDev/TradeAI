@@ -1,0 +1,247 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: CR A Std, monospace;
+  }
+  
+  header{
+    margin-left: -8.5px;
+    width: 100%;
+    height: 300px;
+    background-color: #3498db;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: all .5s ease;
+    background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGlnaCUyMHJlcyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      object-fit: cover;
+      background-position: center;
+  }
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+      left: 50%;
+  }
+  .bg-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+      height: 750px;
+      width: 100%;
+      height: 100%;
+    background-image: url("https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+      filter: blur(8px);
+  }
+
+.together {
+    display: inline-block;
+}
+.together button {
+    padding: 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: hotpink;
+    width: 320px;
+    font-weight: bolder;
+}
+.hover:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px white;
+  transition: all .5s;
+}
+.margin-right {
+    margin-right: 10px;
+}
+.margin-left {
+  margin-left: 10px;
+}
+nav {
+    top: 0;
+    z-index: 2;
+    position: absolute;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav ul li {
+    display: inline-block;
+    list-style-type: none;
+  }
+  nav ul li a {
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: .5px;
+    display: block;
+    line-height: 3em;
+    padding: 1em 3em;
+    text-decoration: none;
+    margin-top: 45px;
+    position: none;
+  }
+  nav ul li:first-child {
+    margin-right: auto;
+  }
+  
+  .logo {
+    margin-left: 15px;
+    width: 220px;
+    position: fixed;
+  }
+
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    font-family: CR A Std, monospace;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .sample-header {
+    position: relative;
+    left: 0;
+    top: 0;
+      height: 550px;
+      width: 100%;
+    background-image: url("https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+      filter: blur(8px);
+  }
+  
+  .container {
+    position: absolute;
+      display: block;
+    margin: 20px;
+      top: 0;
+  }
+  ul, li{ list-style:none; margin:0; padding:0;}/*1.1*/
+  .main-menu {top:445px;position: absolute;width:100%; font-size: 20px; font-weight: bold; font-family: CR A Std, monospace; letter-spacing: .8px;}
+  .main-menu a{color:white; display:block; padding:5px; text-decoration:none;} /*1.2, 1.3*/
+  .main-menu a:hover{text-decoration:none; color:black; background-color: white; transition: color .6s ease;}/*1.2*/
+  .main-menu > ul{ display:table; width:100%;}  /*2.1, 2.2*/
+  .main-menu > ul > li{ display:table-cell; }  /*3.1, 3.2 */
+  .main-menu > ul > li:last-child{ padding-right: 50px; }/*3.2*/
+  .main-menu > ul > li > a{ text-align:center;}/*2*/
+  .sp-width{ width:40%;}
+  .a1{width:25%;}
+  #nav {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0; 
+      text-align: center;
+  }
+  #nav ul {
+      list-style: none;
+      width: 800px;
+      margin: 0 auto;
+      padding: 0; 
+  }
+  #nav li {
+      float: left; 
+  }
+  #nav li a {
+      display: block;
+      padding: 8px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+  }
+  #nav li a:hover {
+      color: #c00;
+      background-color: #fff; }
+  .topnav {
+    overflow: hidden;
+      width: 350px;
+  }
+  
+  /* Navbar links */
+  .topnav a {
+    float: left;
+    color: ghostwhite;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .navbar {
+    overflow: hidden;
+    /*background: linear-gradient(rgba(0, 0, 0), rgba(0, 15, 15), rgba(0, 25, 25), rgba(0, 50, 0));*/
+    /*position: fixed;*/
+    top: 0;
+    width: 100%;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .ss {
+      background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  
+  .sample-header nav{
+      position: absolute;
+      bottom: 0;
+      height: 60px;
+      line-height: 60px;
+      width: 100%;
+  }
+  
+  .site {
+      padding: 50px, 50px;
+    text-align: center;
+    background-color: #efefef;
+    font-size: .8em;
+    color: #444;
+    position:relative
+  }
+  .site a {
+    color: #666;
+    text-decoration: none;
+  }

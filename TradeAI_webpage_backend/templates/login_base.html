@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>TradeAI - Robinhood Login</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/style2.css')}}"/>
+{% endblock %}
+
+{% block body %}
+<div class="bg-image"></div>
+<nav>
+    <ul>
+      <li><img class="logo" src="https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.1&permmsgid=msg-a:r7043939111896252411&th=188713de7ac36d6c&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-Vu2S85CXvuGXxIfCV9THhUQzhPysXTkFdTypwB7I0_QC_NwqwKttttKc-8o-uaLiDL19owLw8YJmwlg_tq7QBRKP6e8lfHM72okOHUytnlw6cUOYmcWpbSn0&disp=emb&realattid=ii_libjafld0" id="logo">
+      </li>
+    </ul>
+  </nav>
+{% block restOfPage %}{% endblock %}
+{% endblock %}

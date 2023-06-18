@@ -1,0 +1,451 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: CR A Std, monospace;
+  }
+
+.center {
+ position: fixed;
+ left: 35%;
+ top: 25%;
+}
+
+.account-center {
+  left: 35%;
+  top: 25%;
+  background-color: white;
+}
+
+.login {
+    width: 550px;
+    border: 2.5px solid greenyellow;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+}
+
+.top {
+    width: 100%;
+    height: 140px;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    position: fixed;
+}
+
+.logo {
+    margin-bottom: 200px;
+    width: 180px;
+    text-align: center;
+}
+
+/* TESTING */
+.wrap {
+    width: 500px;
+    height: 500px;
+}
+.a1 {
+    width: 250px;
+    height: 50px;
+    background: black;
+}
+.active {
+    height: 100%;
+    width: 100%;
+}
+.hide {
+    display: none;
+}
+/* ------- */
+
+.form-for-robinhood {
+    padding: 124px;
+    background-color: white;
+    box-shadow: 4px 4px 12px green;
+}
+.form-for-alpaca {
+    padding: 124px;
+    background-color: white;
+    box-shadow: 4px 4px 12px orange;
+}
+.form-for-error {
+    padding: 124px;
+    background-color: white;
+    box-shadow: 4px 4px 12px red;
+}
+
+.main {
+  position: fixed;
+  display: inline-block;
+  top: 25%;
+  left: 35%;
+  width: calc(100vh - 20vh);
+  height: 680px;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+  font-family: CR A Std, monospace;
+}
+.main-heading {
+  position: fixed;
+  display: inline-block;
+  top: 14%;
+  left: 21.5%;
+  width: 1030px;/*calc(100vh - 20vh);*/
+  height: 150px;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+}
+.flex {
+  display: flex;
+}
+
+.left-upmost {
+  top: 28%;
+  left: 21.5%;
+  background-color: white;
+  width: 460px;
+  height: 380px;
+  position: fixed;
+  display: inline-block;
+}
+.left-upmost-MH {
+  top: 28%;
+  left: 21.5%;
+  background-color: white;
+  width: 460px;
+  height: 620px;
+  position: fixed;
+  display: inline-block;
+}
+
+.long-div {
+  overflow-y: scroll;
+  top: 28%;
+  left: 50%;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+  width: 540px;
+  height: 799px;
+  position: fixed;
+  display: inline-block;
+}
+
+.long-div-below-account {
+  overflow-y: scroll;
+  top: 61.5%;
+  left: 50%;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+  width: 540px;
+  height: 400px;
+  position: fixed;
+  display: inline-block;
+}
+
+.short-div {
+  top: 28%;
+  left: 50%;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+  width: 540px;
+  height: 550px;
+  position: fixed;
+  display: inline-block;
+}
+
+.recents-div {
+  top: 61.5%;
+  left: 21.5%;
+  background-color: white;
+  width: 460px;
+  height: 400px;
+  position: fixed;
+  display: inline-block;
+  box-shadow: 4px 4px 12px green;
+}
+
+.account-info-robinhood {
+  position: fixed;
+  display: inline-block;
+  top: 28%;
+  left: 50%;
+  width: 540px;
+  height: 380px;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+}
+.account-info-robinhood-addCash {
+  position: absolute;
+  display: inline-block;
+  top: 28%;
+  left: 50%;
+  width: 540px;
+  height: 380px;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+}
+.account-info-robinhood-confirming {
+  position: absolute;
+  display: inline-block;
+  top: 0%;
+  left: 25px;
+  width: 540px;
+  height: 420px;
+  background-color: white;
+}
+.account-margin-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+  letter-spacing: 2px;
+  margin-left: 50px;
+}
+.account-margin-left-addCash {
+  position: absolute;
+  display: inline;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+  letter-spacing: 2px;
+  margin-left: 50px;
+}
+.account-margin-left-confirm {
+  margin-top: 10px;
+  left: 35%;
+  position: absolute;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  font-family: cursive;
+  letter-spacing: 2px;
+}
+.show-buy-info-very-small {
+  width: 540px;
+  height: 140px;
+  background-color: white;
+  left: 36.5%;
+  top: 60%;
+  position: fixed;
+}
+.show-buy-info-small {
+  width: 540px;
+  height: 350px;
+  background-color: white;
+  left: 36.5%;
+  top: 40%;
+  position: fixed;;
+}
+.show-buy-info-medium {
+  width: 540px;
+  height: 300px;
+  background-color: white;
+  left: 36.5%;
+  top: 60%;
+  position: fixed;
+}
+.show-buy-info-large {
+  width: 530px;
+  height: 450px;
+  background-color: white;
+  left: 36.5%;
+  top: 50%;
+  position: fixed;
+}
+
+.activity-center-newDataButton {
+  margin: auto;
+  margin-top: 25px;
+  border: none;
+  height: 65px;
+  width: 186.5px;
+  cursor: pointer;
+  background-color: greenyellow;
+}
+.activity-center-newDataButton:hover {
+  transition: all .5s;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  background-color: greenyellow;
+}
+
+.activity-center-ActionButton {
+  letter-spacing: 1.5px;
+  border: 1px solid black;
+  height: 45px;
+  width: 126.5px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.activity-center-ActionButton:hover {
+  transition: all .5s;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  background-color: greenyellow;
+}
+
+.submit-new-data-button {
+  width: 80%;
+  height: 65px;
+  margin-top: 5px;
+  margin-left: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: greenyellow;
+}
+.submit-new-data-button:hover {
+  transition: all .5s;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  background-color: white;
+}
+
+.accross-div-button {
+  width: 80%;
+  height: 65px;
+  margin-top: 20px;
+  margin-left: 50px;
+  border: 1px solid greenyellow;
+  cursor: pointer;
+  background-color: transparent;
+}
+.accross-div-button:hover {
+  transition: all .5s;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  background-color: greenyellow;
+}
+
+.activity-center-seeDataButton {
+  margin-left: 10px;
+  margin-top: 10px;
+  border: none;
+  height: 50px;
+  width: 156.5px;
+  cursor: pointer;
+  background-color: greenyellow;
+}
+.activity-center-seeDataButton:hover {
+  transition: all .5s;
+  box-shadow: 2px 2px black;
+}
+
+.acct-button1 {
+  margin-top: 10px;
+  border: none; 
+  background-color: greenyellow; 
+  height: 50px; 
+  width: 156.5px; 
+  cursor: pointer;
+}
+.acct-button1:hover {
+  transition: all .5s;
+  box-shadow: 2px 2px black;
+  background-color: white;
+  border: 1px solid black;
+}
+.acct-button2 {
+  margin-top: 10px;  
+  background-color: transparent; 
+  border: 1px solid greenyellow; 
+  height: 50px; 
+  width: 156.5px; 
+  cursor: pointer;
+  margin-left: 10px;
+}
+.acct-button2:hover {
+  transition: all .5s;
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  background-color: greenyellow;
+}
+.acct-button3 {
+  margin-top: 10px;  
+  background-color: transparent; 
+  border: 1px solid greenyellow; 
+  height: 50px; 
+  width: 156.5px; 
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 45px;
+}
+.acct-button3:hover {
+  transition: all .5s;
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  background-color: greenyellow;
+}
+.acct-button4 {
+  margin-top: 5px;
+  background-color: transparent;
+  border: 1px solid black;
+  height: 50px;
+  width: 156.5px;
+  cursor: pointer;
+}
+.acct-button4:hover {
+  transition: all .5s;
+  box-shadow: 2px 2px black;
+}
+
+.info {
+  display: inline-block;
+  padding: 124px;
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 4px 4px 12px green;
+}
+
+.bg-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+      height: 100%;
+      width: 100%;
+    background-image: url("https://mail.google.com/mail/u/0?ui=2&ik=31178729b7&attid=0.2&permmsgid=msg-a:r-7389229101011372772&th=18870ac93d6ff732&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8gOhtO8XppLL0Qn6anU0VTaSmDYtA3lOxaYipVCzowBwKhnIaVnMUjpWPfMOo_mDAV5zg-8Us6vNGqV8MpMoPGcLJTLCRumSuJ4HTdbIQOLYo3gsM-GramcnM&disp=emb&realattid=18870ac7bd26e60cc641");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+      filter: blur(8px);
+  }
+
+  nav {
+    top: 0;
+    z-index: 2;
+    position: absolute;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav ul li {
+    display: inline-block;
+    list-style-type: none;
+  }
+  nav ul li a {
+    color: white;
+    font-family: CR A Std, monospace;
+    font-weight: bolder;
+    font-size: 15px;
+    letter-spacing: .5px;
+    display: block;
+    line-height: 3em;
+    padding: 1em 3em;
+    text-decoration: none;
+    margin-top: 45px;
+    position: none;
+  }
+  nav ul li:first-child {
+    margin-right: auto;
+  }
+  
+  .logo {
+    margin-left: 15px;
+    width: 220px;
+    position: fixed;
+  }
